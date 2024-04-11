@@ -151,7 +151,7 @@ app.get('/usuario/:id', async (req, res) => {
       const result = await pool.request().query(`SELECT * FROM Usuarios WHERE ID = ${id}`);
       
       if (result.recordset.length === 0) {
-          return res.status(404).json({ mensaje: 'Actividad no encontrada' });
+          return res.status(404).json({ mensaje: 'Actividad no encontrada o no existente' });
       }
       
       res.json(result); // Devuelve la primera actividad encontrada
